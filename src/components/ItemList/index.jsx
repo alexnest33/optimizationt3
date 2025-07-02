@@ -26,4 +26,6 @@ const ItemList = ({ list, search }) => {
   );
 };
 
-export default memo(ItemList)
+export default memo(ItemList, (prevProps, nextProps) => {
+  prevProps.list === nextProps.list;
+});
