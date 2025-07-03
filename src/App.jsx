@@ -50,7 +50,6 @@ function App() {
     <>
       <CounterButton increment={increment} />
       <h1>Счетчик: {count}</h1>
-
       <SearchInput search={search} searchList={searchList} />
       <ItemList filtration={filtration} />
     </>

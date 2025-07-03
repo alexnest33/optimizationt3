@@ -1,7 +1,6 @@
 import { memo } from "react";
 
 const SearchInput = ({ search, searchList }) => {
-  console.log("rerender serarchInput");
   return (
     <div>
       <input
