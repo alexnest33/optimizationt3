@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import SearchInput from "./components/SearchInput";
 import CounterButton from "./components/CounterButton";
 import ItemList from "./components/ItemList";
@@ -38,13 +38,21 @@ function App() {
     setSearch(event.target.value);
   }, []);
 
+  const filtration = useMemo(() => {
+    return list.filter((item) => {
+      const searching =
+        `${item.id} ${item.name} ${item.lastName}`.toLowerCase();
+      return searching.includes(search.toLowerCase());
+    });
+  }, [list, search]);
+
   return (
     <>
       <CounterButton increment={increment} />
       <h1>Счетчик: {count}</h1>
 
       <SearchInput search={search} searchList={searchList} />
-      <ItemList list={list} search={search} />
+      <ItemList filtration={filtration} />
     </>
   );
 }
