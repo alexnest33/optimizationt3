@@ -1,9 +1,11 @@
 import { memo } from "react";
 
 const ItemList = ({ filtration }) => {
+
+
   return (
     <ul>
-      {filtration.map((item) => {
+      {filtration?.map((item) => {
         return (
           <li key={item.id}>
             <p>

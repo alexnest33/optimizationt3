@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-const SearchInput = ({ search, searchList }) => {
+const SearchInput = ({ search, searchList, }) => {
   return (
     <div>
       <input

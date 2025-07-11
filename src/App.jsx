@@ -2,7 +2,12 @@ import { useState, useCallback, useMemo } from "react";
 import SearchInput from "./components/SearchInput";
 import CounterButton from "./components/CounterButton";
 import ItemList from "./components/ItemList";
+
+import WithRenderTracker from "./components/WithRenderTracker";
 import "./App.css";
+
+
+
 
 function App() {
   const [list, setList] = useState([
@@ -27,6 +32,9 @@ function App() {
     { id: 19, name: "Андрей", lastName: "Зайцев" },
     { id: 20, name: "Светлана", lastName: "Николаева" },
   ]);
+
+
+ 
   const [count, setCount] = useState(0);
   const [search, setSearch] = useState("");
 
@@ -46,12 +54,19 @@ function App() {
     });
   }, [list, search]);
 
+  const WrappedItem = WithRenderTracker(ItemList)
+
+
+
   return (
     <>
       <CounterButton increment={increment} />
       <h1>Счетчик: {count}</h1>
       <SearchInput search={search} searchList={searchList} />
       <ItemList filtration={filtration} />
+      <WrappedItem  /> 
+      
+      
     </>
   );
 }
